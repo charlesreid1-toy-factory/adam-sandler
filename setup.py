@@ -3,8 +3,8 @@ from src import __version__
 
 with open("requirements.txt") as f:
     all_deps = [x for x in f.read().splitlines() if not x.startswith("#")]
-#with open("requirements-dev.txt") as f:
-#    dev_deps = [x for x in f.read().splitlines() if not x.startswith("#")]
+with open("requirements-dev.txt") as f:
+    dev_deps = [x for x in f.read().splitlines() if not x.startswith("#")]
 
 setup(
     name="adam-sandler",
@@ -28,9 +28,9 @@ setup(
     },
     license="MIT",
     install_requires=all_deps,
-    #extras_require={
-    #    "test": dev_deps,
+    extras_require={
+        "test": dev_deps,
     #    "docs": dev_deps,
     #    "develop": dev_deps,
-    #},
+    },
 )
