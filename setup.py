@@ -15,12 +15,12 @@ setup(
     url="https://github.com/charlesreid1-toy-factory/adam-sandler",
     packages=["adam_sandler"],
     package_dir={"adam_sandler": "src"},
-    package_data={
-        "adam_sandler": [
-            "data/*.json",
-            "data/*.txt",
-        ]
-    },
+    #package_data={
+    #    "adam_sandler": [
+    #        "data/*.json",
+    #        "data/*.txt",
+    #    ]
+    #},
     entry_points={
         "console_scripts": [
             "adam-sandler=adam_sandler.cli:main",
