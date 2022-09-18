@@ -107,13 +107,14 @@ $ pyenv versions
   3.7.13
 * 3.8.13
   3.9.13
+  pypy3.9-7.3.9
 ```
 
-In this example, there are 3 different versions of python (3.7, 3.8, 3.9) available
-via pyenv, with the "global" version being set to 3.8.13.
+In this example, there are multilpe versions of python installed and available
+via pyenv, with the global version being set to 3.8.13.
 
-Now, in the repository root, run this command to set up all 3 versions to be
-available for tox to use:
+To make multiple versions of Python available to use, use the `pyenv local` command
+to activate different versions locally:
 
 ```
 $ pyenv local 3.7.13 3.8.13 3.9.13 pypy3.9-7.3.9
@@ -126,7 +127,10 @@ $ pyenv versions
 * pypy3.9-7.3.9 (set by /path/to/adam-sandler/.python-version)
 ``` 
 
-Now when you run `tox` with no arguments, it runs all environments:
+This will create a `.python-local` file. 
+
+Now when you run `tox` with no arguments, it runs all environments, and should be able
+to find each different version of python specified:
 
 ```
 $ tox
@@ -138,6 +142,8 @@ ___________________________________________ summary ____________________________
   py39-wheel-test: commands succeeded
   py38-sdist-test: commands succeeded
   py38-wheel-test: commands succeeded
+  py37-sdist-test: commands succeeded
+  py37-wheel-test: commands succeeded
   pypy39-sdist-test: commands succeeded
   build: commands succeeded
   congratulations :)
