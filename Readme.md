@@ -7,8 +7,6 @@ alt="tests-unittest" src="https://img.shields.io/badge/tests-unittest-green" /><
 alt="tests-pytest" src="https://img.shields.io/badge/tests-pytest-green" /><img
 alt="tests-tox" src="https://img.shields.io/badge/tests-tox-green" />
 
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-
 <img alt="python-3.7-3.8-3.9-pypy3.9" src="https://img.shields.io/badge/python-3.7%20|%203.8%20|%203.9%20|%20pypy3.9-blue" />
 
 ![Adam Sandler as Happy Gilmore](docs/img/happygilmore.png)
