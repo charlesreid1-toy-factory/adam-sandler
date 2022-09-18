@@ -4,11 +4,8 @@
 
 <img
 alt="tests-unittest" src="https://img.shields.io/badge/tests-unittest-green" /><img
-alt="tests-pytest" src="https://img.shields.io/badge/tests-pytest-green" />
-
-<img
-alt="codestyle-black" src="https://img.shields.io/badge/codestyle-black-%23222222" /><img
-alt="codestyle-flake8" src="https://img.shields.io/badge/codestyle-flake8-blue" />
+alt="tests-pytest" src="https://img.shields.io/badge/tests-pytest-green" /><img
+alt="tests-tox" src="https://img.shields.io/badge/tests-tox-green" />
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
