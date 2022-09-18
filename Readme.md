@@ -20,6 +20,37 @@ Package demonstrating how to run Python package tests via tox, covering
 multiple versions of Python. Demonstrate how to modify library implementations
 based on the version of Python.
 
+## Extremely Quick Start
+
+The fastest way to get started is to set up a virtual environment, and install tox into it:
+
+```
+python -m virtualenv -p py39 vp && source vp/bin/activate
+
+pip install tox
+```
+
+Now list all available tox environments:
+
+```
+tox -la
+```
+
+Build the package:
+
+```
+make build
+```
+
+Use this one make command to run all the tox tests:
+
+```
+make tox
+```
+
+(This will require some additional setup to have multiple correct versions of Python,
+see pyenv instructions below.)
+
 ## Using tox
 
 To use tox to run tests, start by installing the dev dependencies:
