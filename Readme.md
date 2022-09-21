@@ -12,8 +12,7 @@ alt="tests-tox" src="https://img.shields.io/badge/tests-tox-green" />
 ![Adam Sandler as Happy Gilmore](docs/img/happygilmore.png)
 
 Package demonstrating how to run Python package tests via tox, covering
-multiple versions of Python. Demonstrate how to modify library implementations
-based on the version of Python.
+multiple versions of Python.
 
 ## Extremely Quick Start
 
@@ -60,14 +59,17 @@ Now you can list all of the available tox environments:
 $ tox -l -v
 
 default environments:
-py39-sdist-test -> Install as source distribution & test
-py39-wheel-test -> Install as binary wheel distribution & test
-py38-sdist-test -> Install as source distribution & test
-py38-wheel-test -> Install as binary wheel distribution & test
-build           -> Create a source and wheel distribution. Creates .tar.gz and .whl artifacts in the dist folder.
+py39-sdist-test   -> Install as source distribution & test
+py39-wheel-test   -> Install as binary wheel distribution & test
+py38-sdist-test   -> Install as source distribution & test
+py38-wheel-test   -> Install as binary wheel distribution & test
+py37-sdist-test   -> Install as source distribution & test
+py37-wheel-test   -> Install as binary wheel distribution & test
+pypy39-sdist-test -> Install as source distribution & test
+build             -> Create a source and wheel distribution. Creates .tar.gz and .whl artifacts in the dist folder.
 ```
 
-See the next section for notes on how to use multiple python versions.
+See the next section for notes on how to use multiple python versions with pyenv.
 
 To run an environment, use `tox -e <env_name>`, for example:
 
