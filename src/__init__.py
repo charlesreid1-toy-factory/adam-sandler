@@ -9,3 +9,4 @@ from .movies import (
     get_good_movies,
     get_bad_movies,
 )
+from .quotes import QUOTES, random_quote

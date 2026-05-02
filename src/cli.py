@@ -4,6 +4,7 @@ import sys
 import click
 from . import __version__
 from .movies import get_movies
+from .quotes import random_quote
 
 
 @click.group(invoke_without_command=True)
@@ -41,6 +42,14 @@ def random_cmd():
     m = random.choice(get_movies())
     icon = "+" if m["category"] == "good" else "-"
     click.echo(" {} {} ({})".format(icon, m["title"], m["year"]))
+
+
+@main.command()
+def quote():
+    """Print a random Adam Sandler movie quote."""
+    q = random_quote()
+    click.echo(' "{}"'.format(q["text"]))
+    click.echo("   -- {} ({})".format(q["character"], q["movie"]))
 
 
 if __name__ == "__main__":  # pragma: no cover

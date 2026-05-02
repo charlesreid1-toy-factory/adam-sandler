@@ -11,6 +11,7 @@ from adam_sandler.movies import (
     get_good_movies,
     get_bad_movies,
 )
+from adam_sandler.quotes import QUOTES, random_quote
 from adam_sandler.cli import main
 
 
@@ -83,9 +84,39 @@ class TestCLI(unittest.TestCase):
     def test_random_command(self):
         result = self.runner.invoke(main, ["random"], catch_exceptions=False)
         self.assertEqual(result.exit_code, 0)
-        # Should contain at least one movie title
         titles = [m["title"] for m in get_movies()]
         self.assertTrue(any(t in result.output for t in titles))
+
+    def test_quote_command(self):
+        result = self.runner.invoke(main, ["quote"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+        # Should contain at least one quote text or movie title
+        texts = [q["text"][:20] for q in QUOTES]
+        movies = set(q["movie"] for q in QUOTES)
+        self.assertTrue(
+            any(t in result.output for t in texts)
+            or any(m in result.output for m in movies)
+        )
+
+
+class TestQuotes(unittest.TestCase):
+    def test_random_quote_returns_dict(self):
+        q = random_quote()
+        self.assertIn("text", q)
+        self.assertIn("movie", q)
+        self.assertIn("character", q)
+
+    def test_quotes_have_required_fields(self):
+        for q in QUOTES:
+            self.assertIsInstance(q["text"], str)
+            self.assertIsInstance(q["movie"], str)
+            self.assertIsInstance(q["character"], str)
+            self.assertGreater(len(q["text"]), 0)
+            self.assertGreater(len(q["movie"]), 0)
+            self.assertGreater(len(q["character"]), 0)
+
+    def test_quotes_not_empty(self):
+        self.assertGreater(len(QUOTES), 0)
 
 
 if __name__ == "__main__":
