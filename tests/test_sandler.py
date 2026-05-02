@@ -1,5 +1,7 @@
 import unittest
 
+from click.testing import CliRunner
+
 from adam_sandler.movies import (
     AdamSandlerMovie,
     GoodAdamSandlerMovie,
@@ -9,6 +11,7 @@ from adam_sandler.movies import (
     get_good_movies,
     get_bad_movies,
 )
+from adam_sandler.cli import main
 
 
 class TestMovies(unittest.TestCase):
@@ -59,6 +62,30 @@ class TestMovies(unittest.TestCase):
             self.assertIsInstance(m["title"], str)
             self.assertIsInstance(m["year"], int)
             self.assertIn(m["category"], ("good", "bad"))
+
+
+class TestCLI(unittest.TestCase):
+    def setUp(self):
+        self.runner = CliRunner()
+
+    def test_version_command(self):
+        result = self.runner.invoke(main, ["version"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn("adam-sandler", result.output)
+        self.assertIn("python", result.output)
+
+    def test_list_command(self):
+        result = self.runner.invoke(main, ["list"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+        for m in get_movies():
+            self.assertIn(m["title"], result.output)
+
+    def test_random_command(self):
+        result = self.runner.invoke(main, ["random"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+        # Should contain at least one movie title
+        titles = [m["title"] for m in get_movies()]
+        self.assertTrue(any(t in result.output for t in titles))
 
 
 if __name__ == "__main__":
