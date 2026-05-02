@@ -19,7 +19,7 @@ multiple versions of Python.
 The fastest way to get started is to set up a virtual environment, and install tox into it:
 
 ```
-python -m virtualenv -p py39 vp && source vp/bin/activate
+python -m virtualenv -p python3.9 vp && source vp/bin/activate
 
 pip install tox
 ```
@@ -30,19 +30,19 @@ Now list all available tox environments:
 tox -la
 ```
 
-Build the package:
-
-```
-make build
-```
-
-Use this one make command to run all the tox tests:
+Run all the tox tests:
 
 ```
 make tox
 ```
 
-(This will require some additional setup to have multiple correct versions of Python,
+Or build the package (source and wheel distributions):
+
+```
+make build
+```
+
+(Testing against multiple Python versions will require some additional setup —
 see pyenv instructions below.)
 
 ## Using tox
@@ -107,7 +107,7 @@ $ pyenv versions
   pypy3.9-7.3.9
 ```
 
-In this example, there are multilpe versions of python installed and available
+In this example, there are multiple versions of python installed and available
 via pyenv, with the global version being set to 3.8.13.
 
 To make multiple versions of Python available to use, use the `pyenv local` command

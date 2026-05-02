@@ -1,11 +1,7 @@
 """Main adam-sandler CLI."""
-import os
 import sys
 import click
 from . import __version__
-
-
-here = os.path.dirname(os.path.abspath(__file__))
 
 
 @click.command()
